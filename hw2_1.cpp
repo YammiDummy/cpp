@@ -2,7 +2,7 @@
 #include <string>
  
 using namespace std;
-static int st_count = 0; 			//счетчик студентов
+static int st_count = 0; 	/*better encapsulate in class*/		//счетчик студентов
 
 class Person {
 	private:
@@ -29,7 +29,7 @@ class Person {
 			m_weight = weight;
 		}
 		
-		friend class Student;
+		friend class Student; // it is not needed
 };
 
 class Student : public Person {
@@ -39,7 +39,7 @@ class Student : public Person {
 		
 	public:
 	
-		Student (string name, char* sex, int age, int weight, int ed_year)
+		Student (const string& name, char* sex, int age, int weight, int ed_year)
 		:Person(name, sex, age, weight), m_ed_year(ed_year) {st_count++;}
 		
 		void set_ed_year (int ed_year) {
