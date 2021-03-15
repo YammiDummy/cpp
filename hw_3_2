@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Car {
+	private:
+		string m_model;
+		string m_company;
+	public:
+		Car () {
+			cout << "Car constructor" << endl;
+			}
+};
+
+class PassengerCar:  virtual public Car {
+	public:
+		PassengerCar () {
+			cout << "PassengerCar constructor" << endl;
+		}
+};
+
+class Bus : virtual public Car {
+	public:
+		Bus () {
+			cout << "Bus constructor" << endl;
+		}
+};
+
+class Minivan : public PassengerCar, public Bus  {
+	public:
+		Minivan () {
+			cout << "Minivan constructor" << endl;
+		}
+};
+			
+int main () {
+	Minivan m; //Проблема "Алмаза смерти" решена, т.к. базовый класс Car является виртуальным.
+}			   //Вывод программы:
+			   //Car constructor
+			   //PassengerCar constructor
+			   //Bus constructor
+			   //Minivan constructor
