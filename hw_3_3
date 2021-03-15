@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+class Fraction {
+	private: 
+		
+		double m_numerator;
+		double m_denominator;
+	
+	public:
+		
+		Fraction (double numerator, double denominator)
+		:m_numerator(numerator), m_denominator(denominator) {
+			if (!denominator) {
+				cout << "You cant denominate with zero" << endl;
+				return;
+			}
+			
+		}
+		
+		double get_fract () const {
+			return m_numerator/m_denominator;
+		}
+};
+
+int main () {
+	Fraction f(125,5);
+	cout << f.get_fract() << endl;
+}
