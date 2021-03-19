@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+class Card {
+			private:
+				string m_name;
+				int m_value;
+				int m_amount = 4;
+			public:
+				Card (){};
+				Card (string name, int value)
+				:m_name(name), m_value(value){}
+				
+				
+				string get_name () {
+					return m_name;
+				}
+				
+				int get_value () {
+					if (m_amount) {
+						m_amount--;
+						return m_value;
+					}
+				}
+				
+				int get_amount () {
+					return m_amount;
+				}
+		};
+
+class Hand {
+	private:
+		
+	public:
+		vector<Card*> m_hand;
+		void Add(Card *c) {
+			m_hand.push_back(c);
+		};
+		void Clear();
+		void GetValue();
+		// void print(){
+			// cout << *m_hand[0].get_name();
+};
+
+int main () {
+	Hand f;
+	Card card("King", 10);
+	f.Add(card);
+	cout << card.get_name();
+};
