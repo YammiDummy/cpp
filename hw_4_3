@@ -35,19 +35,19 @@ class Hand {
 	private:
 		
 	public:
-		vector<Card*> m_hand;
-		void Add(Card *c) {
-			m_hand.push_back(c);
+		vector<Card*> cards;
+		void Add(Card &c) {
+			cards.push_back(new Card());
 		};
 		void Clear();
 		void GetValue();
 		// void print(){
-			// cout << *m_hand[0].get_name();
+			// cout << cards[0].get_name();
+		// };
 };
 
 int main () {
 	Hand f;
-	Card card("King", 10);
+	Card* card = new Card("King", 10);
 	f.Add(card);
-	cout << card.get_name();
 };
