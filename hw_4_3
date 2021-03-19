@@ -34,8 +34,9 @@ class Card {
 class Hand {
 	private:
 		
-	public:
 		vector<Card*> cards;
+	
+	public:
 		
 		void Add(Card *c) {
 			cards.push_back(c);
