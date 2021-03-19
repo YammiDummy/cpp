@@ -36,18 +36,32 @@ class Hand {
 		
 	public:
 		vector<Card*> cards;
-		void Add(Card &c) {
-			cards.push_back(new Card());
+		
+		void Add(Card *c) {
+			cards.push_back(c);
 		};
-		void Clear();
-		void GetValue();
-		// void print(){
-			// cout << cards[0].get_name();
-		// };
-};
-
-int main () {
-	Hand f;
-	Card* card = new Card("King", 10);
-	f.Add(card);
+		
+		void Clear() {
+			for (int i = 0; i < cards.size(); i++){
+				delete cards[i];
+			};
+			cards.clear();
+		};
+		
+		int GetValue(){
+			int value = 0;
+			for (int i = 0; i < cards.size(); i++){
+				value+=cards[i]->get_value();
+			};
+			return value;
+		};
+		
+		void print(){
+			if (cards.empty()) {cout << "Hand is empty!" << endl;}
+			else {
+				for (int i = 0; i < cards.size(); i++){
+					cout << cards[i]->get_name() << endl;
+				}
+			}
+		};
 };
