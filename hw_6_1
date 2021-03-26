@@ -1,1 +1,17 @@
+#include <iostream>
+#include <limits>
 
+using namespace std;
+
+int main () {
+	
+	int num;
+	cout << "Please, enter integer number: ";
+	while(!(cin >> num)){
+		cout << "Its not integer number" << endl;
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Try again: ";
+		};
+	cout << "Your number is: " << num;
+}
